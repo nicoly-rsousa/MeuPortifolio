@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio profissional de Nicoly Rodrigues - Desenvolvedora Full Stack">
+    <meta name="description" content="Portfolio Nicoly Rodrigues - Desenvolvedora Full Stack">
     <meta name="author" content="Nicoly Rodrigues">
-    <title>Nicoly Rodrigues | Desenvolvedora Full Stack</title>
+    <title>Nicoly Rodrigues | Desenvolvedora Full Stack em Formação</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -716,7 +716,7 @@
         <header>
             <div class="profile-wrapper">
                 <div class="orbital-ring"></div>
-                <img src="img.jpeg" alt="Nicoly Rodrigues - Desenvolvedora Full Stack" class="profile-image">
+                <img src="img.jpg" alt="Nicoly Rodrigues - Desenvolvedora Full Stack" class="profile-image">
             </div>
 
             <h1>Nicoly Rodrigues</h1>
@@ -934,66 +934,384 @@
         </style>
     </footer>
 
-    <script>
-        // Intersection Observer for reveal animations
-        document.addEventListener("DOMContentLoaded", () => {
-            const revealElements = document.querySelectorAll(".reveal");
-            
-            const observerOptions = {
-                root: null,
-                threshold: 0.15,
-                rootMargin: "0px 0px -50px 0px"
-            };
+ <script>
+        // ============================================
+        // SISTEMA DE GERENCIAMENTO DO PORTFÓLIO
+        // ============================================
+        class PortfolioManager {
+            constructor() {
+                this.init();
+            }
 
-            const observerCallback = (entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("visible");
-                    }
+            init() {
+                this.setupRevealAnimations();
+                this.setupParticles();
+                this.setupSmoothScroll();
+                this.setupTypingEffect();
+                this.setupSkillsProgress();
+                this.setupScrollProgress();
+                this.setupCursorEffect();
+                this.setupPerformanceMonitor();
+            }
+
+            // ====== ANIMAÇÕES DE REVELAÇÃO AVANÇADAS ======
+            setupRevealAnimations() {
+                const revealElements = document.querySelectorAll(".reveal");
+                
+                const observerOptions = {
+                    root: null,
+                    threshold: 0.15,
+                    rootMargin: "0px 0px -50px 0px"
+                };
+
+                const observerCallback = (entries) => {
+                    entries.forEach((entry, index) => {
+                        if (entry.isIntersecting) {
+                            setTimeout(() => {
+                                entry.target.classList.add("visible");
+                                this.triggerElementAnimation(entry.target);
+                            }, index * 100);
+                        }
+                    });
+                };
+
+                const observer = new IntersectionObserver(observerCallback, observerOptions);
+                revealElements.forEach(el => observer.observe(el));
+            }
+
+            triggerElementAnimation(element) {
+                if (element.querySelector('.skill-icon')) {
+                    const icon = element.querySelector('.skill-icon');
+                    icon.style.animation = 'none';
+                    setTimeout(() => {
+                        icon.style.animation = 'iconBounce 0.6s ease, iconFloat 3s ease-in-out infinite 0.6s';
+                    }, 10);
+                }
+            }
+
+            // ====== SISTEMA DE PARTÍCULAS INTELIGENTE ======
+            setupParticles() {
+                const particleContainer = document.getElementById('particle-container');
+                const particleCount = window.innerWidth > 768 ? 30 : 15;
+                
+                const createParticle = () => {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    
+                    const size = Math.random() * 3 + 1;
+                    const startX = Math.random() * 100;
+                    const drift = (Math.random() - 0.5) * 200;
+                    const delay = Math.random() * 10;
+                    const duration = Math.random() * 5 + 10;
+                    
+                    particle.style.cssText = `
+                        width: ${size}px;
+                        height: ${size}px;
+                        left: ${startX}%;
+                        --drift: ${drift}px;
+                        animation-delay: ${delay}s;
+                        animation-duration: ${duration}s;
+                    `;
+                    
+                    return particle;
+                };
+
+                for (let i = 0; i < particleCount; i++) {
+                    particleContainer.appendChild(createParticle());
+                }
+            }
+
+            // ====== SMOOTH SCROLL PROFISSIONAL ======
+            setupSmoothScroll() {
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const target = document.querySelector(anchor.getAttribute('href'));
+                        if (target) {
+                            const offset = 80;
+                            const targetPosition = target.offsetTop - offset;
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
                 });
-            };
+            }
 
-            const observer = new IntersectionObserver(observerCallback, observerOptions);
-            
-            revealElements.forEach(el => observer.observe(el));
+            // ====== EFEITO DE DIGITAÇÃO NO SUBTÍTULO ======
+            setupTypingEffect() {
+                const subtitle = document.querySelector('.subtitle');
+                if (!subtitle) return;
 
-            // Particle animation
-            const particleContainer = document.getElementById('particle-container');
-            const particleCount = 30;
+                const originalText = subtitle.textContent;
+                const words = ['Desenvolvedora Full Stack', 'Professora de TI', 'Entusiasta de Tecnologia'];
+                let wordIndex = 0;
+                let charIndex = 0;
+                let isDeleting = false;
 
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
+                const type = () => {
+                    const currentWord = words[wordIndex];
+                    
+                    if (isDeleting) {
+                        subtitle.textContent = currentWord.substring(0, charIndex - 1);
+                        charIndex--;
+                    } else {
+                        subtitle.textContent = currentWord.substring(0, charIndex + 1);
+                        charIndex++;
+                    }
+
+                    let typeSpeed = isDeleting ? 50 : 100;
+
+                    if (!isDeleting && charIndex === currentWord.length) {
+                        typeSpeed = 2000;
+                        isDeleting = true;
+                    } else if (isDeleting && charIndex === 0) {
+                        isDeleting = false;
+                        wordIndex = (wordIndex + 1) % words.length;
+                        typeSpeed = 500;
+                    }
+
+                    setTimeout(type, typeSpeed);
+                };
+
+                // Inicia após 1 segundo
+                setTimeout(() => {
+                    subtitle.textContent = '';
+                    type();
+                }, 1000);
+            }
+
+            // ====== ANIMAÇÃO DE PROGRESSO NAS HABILIDADES ======
+            setupSkillsProgress() {
+                const skillCards = document.querySelectorAll('.skill-card');
                 
-                const size = Math.random() * 3 + 1;
-                const startX = Math.random() * 100;
-                const drift = (Math.random() - 0.5) * 200;
-                const delay = Math.random() * 10;
-                const duration = Math.random() * 5 + 10;
+                const observerOptions = {
+                    threshold: 0.5
+                };
+
+                const observerCallback = (entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            this.animateSkillCard(entry.target);
+                        }
+                    });
+                };
+
+                const observer = new IntersectionObserver(observerCallback, observerOptions);
+                skillCards.forEach(card => observer.observe(card));
+            }
+
+            animateSkillCard(card) {
+                const icon = card.querySelector('.skill-icon');
+                if (icon && !card.dataset.animated) {
+                    card.dataset.animated = 'true';
+                    
+                    // Adiciona contador de "experiência"
+                    const experience = Math.floor(Math.random() * 3) + 1;
+                    const badge = document.createElement('div');
+                    badge.style.cssText = `
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        background: rgba(248, 24, 148, 0.2);
+                        color: var(--primary-color);
+                        padding: 5px 10px;
+                        border-radius: 15px;
+                        font-size: 0.8em;
+                        font-weight: 600;
+                        border: 1px solid var(--primary-color);
+                        z-index: 10;
+                        opacity: 0;
+                        animation: fadeInScale 0.5s ease forwards 0.3s;
+                    `;
+                    badge.textContent = `${experience}+ anos`;
+                    card.style.position = 'relative';
+                    card.appendChild(badge);
+                }
+            }
+
+            // ====== BARRA DE PROGRESSO DE SCROLL ======
+            setupScrollProgress() {
+                const progressBar = document.createElement('div');
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    height: 4px;
+                    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--tertiary-color));
+                    width: 0%;
+                    z-index: 9999;
+                    transition: width 0.1s ease;
+                    box-shadow: 0 0 10px rgba(248, 24, 148, 0.8);
+                `;
+                document.body.appendChild(progressBar);
+
+                window.addEventListener('scroll', () => {
+                    const winScroll = document.documentElement.scrollTop;
+                    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    const scrolled = (winScroll / height) * 100;
+                    progressBar.style.width = scrolled + '%';
+                });
+            }
+
+            // ====== CURSOR PERSONALIZADO ======
+            setupCursorEffect() {
+                if (window.innerWidth <= 768) return; // Apenas desktop
+
+                const cursor = document.createElement('div');
+                const cursorDot = document.createElement('div');
                 
-                particle.style.cssText = `
-                    width: ${size}px;
-                    height: ${size}px;
-                    left: ${startX}%;
-                    --drift: ${drift}px;
-                    animation-delay: ${delay}s;
-                    animation-duration: ${duration}s;
+                cursor.style.cssText = `
+                    position: fixed;
+                    width: 40px;
+                    height: 40px;
+                    border: 2px solid var(--primary-color);
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 9998;
+                    transition: all 0.15s ease;
+                    opacity: 0;
+                    transform: translate(-50%, -50%);
                 `;
                 
-                particleContainer.appendChild(particle);
+                cursorDot.style.cssText = `
+                    position: fixed;
+                    width: 8px;
+                    height: 8px;
+                    background: var(--primary-color);
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 9999;
+                    opacity: 0;
+                    transform: translate(-50%, -50%);
+                    box-shadow: 0 0 10px var(--primary-color);
+                `;
+
+                document.body.appendChild(cursor);
+                document.body.appendChild(cursorDot);
+
+                let mouseX = 0, mouseY = 0;
+                let cursorX = 0, cursorY = 0;
+
+                document.addEventListener('mousemove', (e) => {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+                    
+                    cursor.style.opacity = '1';
+                    cursorDot.style.opacity = '1';
+                    
+                    cursorDot.style.left = mouseX + 'px';
+                    cursorDot.style.top = mouseY + 'px';
+                });
+
+                const animateCursor = () => {
+                    cursorX += (mouseX - cursorX) * 0.15;
+                    cursorY += (mouseY - cursorY) * 0.15;
+                    
+                    cursor.style.left = cursorX + 'px';
+                    cursor.style.top = cursorY + 'px';
+                    
+                    requestAnimationFrame(animateCursor);
+                };
+                animateCursor();
+
+                // Efeito hover em elementos clicáveis
+                document.querySelectorAll('a, button, .skill-card, .project-card').forEach(el => {
+                    el.addEventListener('mouseenter', () => {
+                        cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                        cursor.style.borderColor = 'var(--secondary-color)';
+                    });
+                    el.addEventListener('mouseleave', () => {
+                        cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+                        cursor.style.borderColor = 'var(--primary-color)';
+                    });
+                });
             }
+
+            // ====== MONITOR DE PERFORMANCE ======
+            setupPerformanceMonitor() {
+                if (window.location.hash === '#debug') {
+                    const monitor = document.createElement('div');
+                    monitor.style.cssText = `
+                        position: fixed;
+                        bottom: 20px;
+                        right: 20px;
+                        background: rgba(0, 0, 0, 0.8);
+                        color: var(--primary-color);
+                        padding: 15px;
+                        border-radius: 10px;
+                        font-family: 'JetBrains Mono', monospace;
+                        font-size: 0.9em;
+                        z-index: 9999;
+                        border: 1px solid var(--primary-color);
+                    `;
+                    document.body.appendChild(monitor);
+
+                    let fps = 0;
+                    let lastTime = performance.now();
+                    let frames = 0;
+
+                    const updateMonitor = () => {
+                        frames++;
+                        const currentTime = performance.now();
+                        
+                        if (currentTime >= lastTime + 1000) {
+                            fps = Math.round((frames * 1000) / (currentTime - lastTime));
+                            frames = 0;
+                            lastTime = currentTime;
+                            
+                            monitor.innerHTML = `
+                                <div>FPS: ${fps}</div>
+                                <div>Resolução: ${window.innerWidth}x${window.innerHeight}</div>
+                                <div>Scroll: ${Math.round(window.scrollY)}px</div>
+                            `;
+                        }
+                        
+                        requestAnimationFrame(updateMonitor);
+                    };
+                    updateMonitor();
+                }
+            }
+        }
+
+        // ============================================
+        // INICIALIZAÇÃO
+        // ============================================
+        document.addEventListener("DOMContentLoaded", () => {
+            new PortfolioManager();
+
+            // Easter egg: Console message
+            console.log('%c🚀 Portfólio de Nicoly Rodrigues', 'font-size: 20px; font-weight: bold; color: #F81894;');
+            console.log('%c💻 Desenvolvido com JavaScript avançado e muito ❤️', 'font-size: 14px; color: #A78BFA;');
+            console.log('%c📧 nicolyrrh@gmail.com', 'font-size: 12px; color: #14b8a6;');
         });
 
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // CSS para animações adicionais
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInScale {
+                from {
+                    opacity: 0;
+                    transform: scale(0.5);
                 }
-            });
-        });
+                to {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+            
+            * {
+                cursor: none !important;
+            }
+            
+            @media (max-width: 768px) {
+                * {
+                    cursor: auto !important;
+                }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
