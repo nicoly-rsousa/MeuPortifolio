@@ -5,24 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfolio Nicoly Rodrigues - Desenvolvedora Full Stack">
     <meta name="author" content="Nicoly Rodrigues">
-    <title>Nicoly Rodrigues | Desenvolvedora Full Stack em Formação</title>
+    <title>Nicoly Rodrigues | Desenvolvedora Full Stack</title>
     
     <script src="./meuscript.js" defer></script>
     
+    <link rel="stylesheet" href="style.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
     <div class="tech-background"></div>
     <div class="grid-overlay"></div>
     <div class="particles" id="particle-container"></div>
+    
+    <nav>
+        <div class="nav-content">
+            <div class="logo">NR</div>
+            <ul class="nav-links">
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#skills">Habilidades</a></li>
+                <li><a href="#experience">Experiência</a></li>
+                <li><a href="#education">Formação</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <div class="container">
+        
         <header>
             <div class="profile-wrapper">
                 <div class="orbital-ring"></div>
@@ -30,11 +42,10 @@
             </div>
 
             <h1>Nicoly Rodrigues</h1>
-            <p class="subtitle">Desenvolvedora Full Stack em Formação | Professora de TI  </p>
+            <p class="subtitle">Desenvolvedora Full Stack em Formação</p>
             <p class="bio">
-                Estudante de Sistemas de Informação com experiência em desenvolvimento de sistemas, 
-                banco de dados e ensino de tecnologia. Apaixonada por traduzir conceitos complexos 
-                em soluções práticas e acessíveis. Atualmente sou educadora de TI na Microlins.
+               Estudante de Sistemas de Informação | Técnico em Desenvolvimento de Sistemas - Rio Pomba Valley | 
+              Office 365 | VBA | C# | SQL | PHP
             </p>
             
             <div class="social-links">
@@ -50,14 +61,22 @@
                     <i class="fa-brands fa-instagram" aria-hidden="true"></i>
                     <span>Instagram</span>
                 </a>
-                <a href="mailto:nicolyrrh@gmail.com" class="social-btn email" aria-label="Email">
+                <a href="mailto:nicolydevv@gmail.com" class="social-btn email" aria-label="Email">
                     <i class="fa-solid fa-envelope" aria-hidden="true"></i>
                     <span>Email</span>
                 </a>
             </div>
+
+            <!-- Botão de Entre em Contato em Destaque -->
+            <div class="cta-button-wrapper">
+                <a href="mailto:nicolydevv@gmail.com" class="cta-button">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    Entre em Contato
+                </a>
+            </div>
         </header>
 
-        <section class="section reveal">
+        <section class="section reveal" id="about">
             <h2>Sobre Mim</h2>
             <p>
                 Apaixonada por tecnologia e em início de carreira na área de Desenvolvimento de Sistemas. 
@@ -69,7 +88,7 @@
             </p>
         </section>
 
-        <section class="section reveal">
+        <section class="section reveal" id="skills">
             <h2>Habilidades Técnicas</h2>
             <div class="skills">
                 <div class="skill-card reveal">
@@ -143,35 +162,34 @@
                     <h3>Metodologias Ágeis</h3>
                     <p>Kanban, Gestão de Processos</p>
                 </div>
-                </div>
+            </div>
         </section>
-<section class="section reveal">
-            <h2>Experiência Profissional</h2>
-            <div style="margin-top: 30px;">
-                <div style="margin-bottom: 30px;">
-                    <h3 style="color: var(--primary-color); font-size: 1.5em; margin-bottom: 10px;">
-                        <i class="fa-solid fa-chalkboard-user" style="margin-right: 10px;"></i>
-                        Educadora de TI - Microlins
-                    </h3>
-                    <p style="color: var(--secondary-color); margin-bottom: 15px; font-family: 'JetBrains Mono', monospace;">
-                        Março 2025 - Presente | Cataguases, MG
-                    </p>
-                    <ul style="color: var(--text-secondary); line-height: 1.8; padding-left: 25px;">
+
+        <section id="experience" class="section reveal">
+            <div class="section-header">
+                <h2 class="section-title">Experiência Profissional</h2>
+                <p class="section-subtitle">
+                    Minha trajetória na área de tecnologia
+                </p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <h3>Educadora de TI</h3>
+                    <p class="timeline-date">Microlins • Março 2025 - Presente • Cataguases, MG</p>
+                    <ul>
                         <li>Ministro aulas práticas de TI, orientando alunos em softwares e linguagens de programação</li>
                         <li>Desenvolvo atividades para aprimorar soft skills e hard skills dos estudantes</li>
                         <li>Realizo manutenção em redes e suporte a sistemas educacionais</li>
                     </ul>
                 </div>
 
-                <div>
-                    <h3 style="color: var(--primary-color); font-size: 1.5em; margin-bottom: 10px;">
-                        <i class="fa-solid fa-hospital" style="margin-right: 10px;"></i>
-                        Suporte Técnico - Hospital de Cataguases
-                    </h3>
-                    <p style="color: var(--secondary-color); margin-bottom: 15px; font-family: 'JetBrains Mono', monospace;">
-                        Abril 2024 - Junho 2024 | Cataguases, MG
-                    </p>
-                    <ul style="color: var(--text-secondary); line-height: 1.8; padding-left: 25px;">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <h3>Suporte Técnico</h3>
+                    <p class="timeline-date">Hospital de Cataguases • Abril 2024 - Junho 2024 • Cataguases, MG</p>
+                    <ul>
                         <li>Suporte ao sistema hospitalar e infraestrutura de TI</li>
                         <li>Resolução de chamados técnicos garantindo disponibilidade de equipamentos e redes</li>
                         <li>Manutenção e suporte em impressoras e computadores</li>
@@ -180,81 +198,77 @@
             </div>
         </section>
 
-        <section class="section reveal">
-            <h2>Formação Acadêmica & Certificações</h2>
-            <div style="margin-top: 30px;">
-                <div style="margin-bottom: 25px; padding: 20px; background: rgba(248, 24, 148, 0.05); border-left: 4px solid var(--primary-color); border-radius: 10px;">
-                    <h3 style="color: var(--text-primary); font-size: 1.3em; margin-bottom: 8px;">
-                        <i class="fa-solid fa-graduation-cap" style="margin-right: 10px; color: var(--primary-color);"></i>
-                        Bacharelado em Sistemas de Informação
-                    </h3>
-                    <p style="color: var(--secondary-color); font-family: 'JetBrains Mono', monospace;">Estácio | 2023 - 2026 (6° período)</p>
+        <section id="education" class="section reveal">
+            <div class="section-header">
+                <h2 class="section-title">Formação Acadêmica</h2>
+                <p class="section-subtitle">
+                    Minha jornada educacional
+                </p>
+            </div>
+
+            <div class="education-grid">
+                <div class="education-card reveal">
+                    <h3><i class="fa-solid fa-graduation-cap"></i>Bacharelado em Sistemas de Informação</h3>
+                    <p class="institution">Estácio • 2023 - 2026 (6° período)</p>
                 </div>
 
-                <div style="margin-bottom: 25px; padding: 20px; background: rgba(248, 24, 148, 0.05); border-left: 4px solid var(--secondary-color); border-radius: 10px;">
-                    <h3 style="color: var(--text-primary); font-size: 1.3em; margin-bottom: 8px;">
-                        <i class="fa-solid fa-certificate" style="margin-right: 10px; color: var(--secondary-color);"></i>
-                        Técnico em Desenvolvimento de Sistemas
-                    </h3>
-                    <p style="color: var(--secondary-color); font-family: 'JetBrains Mono', monospace;">Instituto Energisa | 2025 - 2027 (Em andamento)</p>
+                <div class="education-card reveal">
+                    <h3><i class="fa-solid fa-certificate"></i>Técnico em Desenvolvimento de Sistemas</h3>
+                    <p class="institution">Instituto Energisa • 2025 - 2027 (Em andamento)</p>
                 </div>
 
-                <div style="margin-bottom: 25px; padding: 20px; background: rgba(248, 24, 148, 0.05); border-left: 4px solid var(--tertiary-color); border-radius: 10px;">
-                    <h3 style="color: var(--text-primary); font-size: 1.3em; margin-bottom: 8px;">
-                        <i class="fa-solid fa-desktop" style="margin-right: 10px; color: var(--tertiary-color);"></i>
-                        Técnico em Informática
-                    </h3>
-                    <p style="color: var(--secondary-color); font-family: 'JetBrains Mono', monospace;">IF Sudeste MG - Campus Rio Pomba | Concluído em 2019</p>
+                <div class="education-card reveal">
+                    <h3><i class="fa-solid fa-desktop"></i>Técnico em Informática</h3>
+                    <p class="institution">IF Sudeste MG - Campus Rio Pomba • Concluído em 2019</p>
                 </div>
+            </div>
 
-                <h3 style="color: var(--primary-color); font-size: 1.4em; margin: 30px 0 20px; display: flex; align-items: center; gap: 10px;">
-                    <i class="fa-solid fa-award"></i>
+            <div style="margin-top: 64px;" class="reveal">
+                <h3 style="font-size: 32px; margin-bottom: 32px; color: var(--text-primary); text-align: center;">
+                    <i class="fa-solid fa-award" style="color: var(--tertiary-color); margin-right: 12px;"></i>
                     Certificações
                 </h3>
                 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px;">
-                    <div style="padding: 15px; background: rgba(167, 139, 250, 0.1); border-radius: 10px; border: 1px solid rgba(167, 139, 250, 0.3);">
-                        <p style="color: var(--text-primary); font-weight: 600;">
-                            <i class="fa-solid fa-hashtag" style="margin-right: 8px; color: #68217A;"></i>
-                            C# Essencial (LINQ, .NET 7.0/8.0/9.0) (2025)
-                        </p>
+                <div class="cert-grid">
+                    <div class="cert-badge reveal">
+                        <div class="cert-icon">
+                            <i class="fa-solid fa-hashtag"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h4>C# Essencial (LINQ, .NET 7.0/8.0/9.0)</h4>
+                            <span>(2025)</span>
+                        </div>
                     </div>
-                    <div style="padding: 15px; background: rgba(167, 139, 250, 0.1); border-radius: 10px; border: 1px solid rgba(167, 139, 250, 0.3);">
-                        <p style="color: var(--text-primary); font-weight: 600;">
-                            <i class="fa-solid fa-table" style="margin-right: 8px; color: #1D6F42;"></i>
-                            Excel VBA Avançado (2025)
-                        </p>
+                    <div class="cert-badge reveal">
+                        <div class="cert-icon">
+                            <i class="fa-solid fa-table"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h4>Excel VBA Avançado</h4>
+                            <span>(2025)</span>
+                        </div>
                     </div>
-                    <div style="padding: 15px; background: rgba(167, 139, 250, 0.1); border-radius: 10px; border: 1px solid rgba(167, 139, 250, 0.3);">
-                        <p style="color: var(--text-primary); font-weight: 600;">
-                            <i class="fa-brands fa-microsoft" style="margin-right: 8px; color: #0089D6;"></i>
-                            Microsoft Azure AI Essentials (2025)
-                        </p>
+                    <div class="cert-badge reveal">
+                        <div class="cert-icon">
+                            <i class="fa-brands fa-microsoft"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h4>Microsoft Azure AI Essentials</h4>
+                            <span>(2025)</span>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
-<!--
-        <section class="section reveal">
-            <h2>Idiomas</h2>
-            <div style="margin-top: 30px;">
-                <div style="padding: 15px; background: rgba(167, 139, 250, 0.1); border-radius: 10px; border: 1px solid rgba(167, 139, 250, 0.3); max-width: 280px;">
-                    <p style="color: var(--text-primary); font-weight: 600;">
-                        <i class="fa-solid fa-language" style="margin-right: 8px; color: var(--accent-cyan);"></i>
-                        Inglês - Básico
-                    </p>
                 </div>
             </div>
         </section>
 
     </div>
--->
+
     <footer>
         <p>&copy; 2025 Nicoly Rodrigues. Todos os direitos reservados.</p>
         <p style="margin-top: 10px; font-size: 0.9em;">
-            Desenvolvido com <i class="fa-solid fa-heart" style="color: #F81894; animation: heartbeat 1.5s ease-in-out infinite;"></i> e tecnologia
+            Desenvolvido com <i class="fa-solid fa-heart"></i> e tecnologia
         </p>
-        </footer>
+    </footer>
 
 </body>
 </html>

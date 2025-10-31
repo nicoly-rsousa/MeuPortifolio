@@ -614,6 +614,10 @@ class CursorEffect {
     this.cursorX = 0;
     /** @private @type {number} */
     this.cursorY = 0;
+    /** @private @type {number} */
+    this.dotX = 0;
+    /** @private @type {number} */
+    this.dotY = 0;
     /** @private @type {number | null} */
     this.animationId = null;
     /** @type {boolean} */
@@ -686,11 +690,6 @@ class CursorEffect {
       
       if (this.cursor) this.cursor.style.opacity = '1';
       if (this.cursorDot) this.cursorDot.style.opacity = '1';
-      
-      if (this.cursorDot) {
-        this.cursorDot.style.left = this.mouseX + 'px';
-        this.cursorDot.style.top = this.mouseY + 'px';
-      }
     });
     
     this.setupHoverEffects();
@@ -737,12 +736,22 @@ class CursorEffect {
    * Loop de animação (requestAnimationFrame) para suavizar o movimento do cursor.
    */
   animate() {
+    // Círculo externo (mais lento)
     this.cursorX += (this.mouseX - this.cursorX) * CONFIG.CURSOR.FOLLOW_SPEED;
     this.cursorY += (this.mouseY - this.cursorY) * CONFIG.CURSOR.FOLLOW_SPEED;
+    
+    // Bolinha interna (mais rápida)
+    this.dotX += (this.mouseX - this.dotX) * 0.25;
+    this.dotY += (this.mouseY - this.dotY) * 0.25;
     
     if (this.cursor) {
       this.cursor.style.left = this.cursorX + 'px';
       this.cursor.style.top = this.cursorY + 'px';
+    }
+    
+    if (this.cursorDot) {
+      this.cursorDot.style.left = this.dotX + 'px';
+      this.cursorDot.style.top = this.dotY + 'px';
     }
     
     this.animationId = requestAnimationFrame(() => this.animate());
