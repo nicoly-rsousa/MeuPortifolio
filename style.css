@@ -1,19 +1,20 @@
 :root {
-    /* NOVA PALETA DE CORES (TECH / CIANO) */
-    --primary-color: #00F0FF;     /* Ciano Brilhante (Era Rosa #F81894) */
-    --secondary-color: #0077FF;    /* Azul Forte (Era Roxo #A78BFA) */
-    --tertiary-color: #00FF8C;     /* Verde Brilhante (Era Verde-água #14b8a6) */
+    /* PALETA PROFISSIONAL - ColorHunt */
+    --primary-color: #4A70A9;      /* Azul Profissional */
+    --secondary-color: #8FABD4;    /* Azul Claro Suave */
+    --tertiary-color: #EFECE8;     /* Bege Claro */
+    --dark-color: #000000;         /* Preto */
     
-    --accent-yellow: #FFD700;
-    --accent-cyan: #00D9FF;
+    --accent-gold: #C9A961;        /* Dourado Sutil */
+    --accent-blue: #6B8DC9;        /* Azul Médio */
     
-    --text-primary: #F0F0F0;       /* Branco (Era #F0E6FF) */
-    --text-secondary: #B0C0D0;     /* Cinza Azulado (Era #C0B7E8) */
-    --text-muted: #506070;       /* Cinza Escuro (Era #6a5d83) */
+    --text-primary: #EFECE8;       /* Bege Claro para texto */
+    --text-secondary: #B8C5D9;     /* Azul muito claro */
+    --text-muted: #7A8CA3;         /* Cinza Azulado */
     
-    --bg-dark: #020617;         /* Azul Marinho Muito Escuro (Era #000000) */
-    --bg-card: rgba(0, 240, 255, 0.05); /* Fundo do Card (Baseado no Ciano) */
-    --border-color: rgba(0, 240, 255, 0.2); /* Borda (Baseado no Ciano) */
+    --bg-dark: #000000;            /* Preto Puro */
+    --bg-card: rgba(74, 112, 169, 0.08);
+    --border-color: rgba(143, 171, 212, 0.25);
     
     --transition-speed: 0.4s;
 }
@@ -44,8 +45,8 @@ body {
     pointer-events: none;
     z-index: 0;
     background: 
-        radial-gradient(ellipse at top, #050819 0%, var(--bg-dark) 50%),
-        radial-gradient(ellipse at bottom, #0a0e27 0%, var(--bg-dark) 100%);
+        radial-gradient(ellipse at top, #0a0f1a 0%, var(--bg-dark) 50%),
+        radial-gradient(ellipse at bottom, #0d1525 0%, var(--bg-dark) 100%);
 }
 
 .grid-overlay {
@@ -58,7 +59,7 @@ body {
     animation: gridMove 20s linear infinite;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.3;
+    opacity: 0.2;
 }
 
 @keyframes gridMove {
@@ -75,7 +76,7 @@ body {
 
 .particle {
     position: absolute;
-    background: var(--primary-color);
+    background: var(--secondary-color);
     border-radius: 50%;
     opacity: 0;
     animation: float 10s infinite;
@@ -86,8 +87,8 @@ body {
         transform: translateY(100vh) translateX(0) scale(1); 
         opacity: 0;
     }
-    10% { opacity: 0.5; }
-    90% { opacity: 0.5; }
+    10% { opacity: 0.4; }
+    90% { opacity: 0.4; }
     100% { 
         transform: translateY(-100vh) translateX(var(--drift)) scale(1.5);
         opacity: 0;
@@ -105,7 +106,7 @@ body {
 /* Header */
 header {
     text-align: center;
-    padding: 60px 20px 40px; /* AJUSTADO: Padding vertical diminuído */
+    padding: 60px 20px 40px;
     position: relative;
 }
 
@@ -121,12 +122,12 @@ header {
     border-radius: 50%;
     border: 4px solid transparent;
     background: linear-gradient(var(--bg-dark), var(--bg-dark)) padding-box,
-                linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--tertiary-color)) border-box; /* CORES ATUALIZADAS */
+                linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-gold)) border-box;
     object-fit: cover;
     display: block;
     box-shadow: 
-        0 0 40px rgba(0, 240, 255, 0.5),  /* COR ATUALIZADA */
-        0 0 80px rgba(0, 119, 255, 0.3);  /* COR ATUALIZADA */
+        0 0 40px rgba(74, 112, 169, 0.4),
+        0 0 80px rgba(143, 171, 212, 0.2);
     animation: profilePulse 3s ease-in-out infinite;
     position: relative;
     z-index: 2;
@@ -134,11 +135,11 @@ header {
 
 @keyframes profilePulse {
     0%, 100% {
-        box-shadow: 0 0 40px rgba(0, 240, 255, 0.5), 0 0 80px rgba(0, 119, 255, 0.3); /* COR ATUALIZADA */
+        box-shadow: 0 0 40px rgba(74, 112, 169, 0.4), 0 0 80px rgba(143, 171, 212, 0.2);
         transform: scale(1);
     }
     50% {
-        box-shadow: 0 0 60px rgba(0, 240, 255, 0.8), 0 0 120px rgba(0, 119, 255, 0.5); /* COR ATUALIZADA */
+        box-shadow: 0 0 60px rgba(74, 112, 169, 0.6), 0 0 120px rgba(143, 171, 212, 0.3);
         transform: scale(1.02);
     }
 }
@@ -176,7 +177,7 @@ header {
 h1 {
     font-size: clamp(2rem, 5vw, 3.5rem);
     margin-bottom: 15px;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--tertiary-color), var(--primary-color)); /* CORES ATUALIZADAS */
+    background: linear-gradient(90deg, var(--tertiary-color), var(--secondary-color), var(--primary-color), var(--secondary-color)); 
     background-size: 300% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -220,7 +221,7 @@ h1 {
 
 .bio {
     max-width: 700px;
-    margin: 0 auto 30px; /* AJUSTADO: Margem inferior diminuída */
+    margin: 0 auto 30px;
     color: var(--text-secondary);
     font-size: clamp(1rem, 2vw, 1.15rem);
     line-height: 1.8;
@@ -232,7 +233,7 @@ h1 {
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
-    margin-top: 30px; /* AJUSTADO: Margem superior diminuída */
+    margin-top: 30px;
 }
 
 .social-btn {
@@ -245,7 +246,7 @@ h1 {
     background: var(--bg-card);
     border: 2px solid var(--border-color);
     border-radius: 50px;
-    color: var(--primary-color); /* COR ATUALIZADA */
+    color: var(--secondary-color);
     text-decoration: none;
     font-weight: 700;
     font-size: 1em;
@@ -258,7 +259,7 @@ h1 {
     content: '';
     position: absolute;
     inset: 50% 50%;
-    background: radial-gradient(circle, rgba(0, 240, 255, 0.3), transparent); /* COR ATUALIZADA */
+    background: radial-gradient(circle, rgba(74, 112, 169, 0.3), transparent);
     border-radius: 50%;
     transform: translate(-50%, -50%);
     transition: width 0.6s, height 0.6s;
@@ -273,11 +274,11 @@ h1 {
 
 .social-btn:hover {
     border-color: var(--primary-color);
-    color: #fff;
+    color: var(--tertiary-color);
     transform: translateY(-8px) scale(1.05);
     box-shadow: 
-        0 0 30px rgba(0, 240, 255, 0.6), /* COR ATUALIZADA */
-        0 15px 40px rgba(0, 240, 255, 0.3); /* COR ATUALIZADA */
+        0 0 30px rgba(74, 112, 169, 0.5),
+        0 15px 40px rgba(74, 112, 169, 0.3);
 }
 
 .social-btn i {
@@ -311,54 +312,53 @@ h1 {
 /* Cores específicas para cada rede */
 .social-btn.linkedin:hover {
     border-color: #0077b5;
-    box-shadow: 0 0 30px rgba(0, 119, 181, 0.6), 0 15px 40px rgba(0, 119, 181, 0.3);
+    box-shadow: 0 0 30px rgba(0, 119, 181, 0.5), 0 15px 40px rgba(0, 119, 181, 0.3);
 }
 
 .social-btn.github:hover {
-    border-color: #fff;
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 15px 40px rgba(255, 255, 255, 0.3);
+    border-color: var(--tertiary-color);
+    box-shadow: 0 0 30px rgba(239, 236, 232, 0.4), 0 15px 40px rgba(239, 236, 232, 0.2);
 }
 
 .social-btn.instagram:hover {
     border-color: #E1306C;
-    box-shadow: 0 0 30px rgba(225, 48, 108, 0.6), 0 15px 40px rgba(225, 48, 108, 0.3);
+    box-shadow: 0 0 30px rgba(225, 48, 108, 0.5), 0 15px 40px rgba(225, 48, 108, 0.3);
 }
 
 .social-btn.email:hover {
-    border-color: var(--accent-yellow);
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.6), 0 15px 40px rgba(255, 215, 0, 0.3);
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 30px rgba(201, 169, 97, 0.5), 0 15px 40px rgba(201, 169, 97, 0.3);
 }
 
-/* === INÍCIO: ESTILOS ADICIONADOS PARA O BOTÃO CTA === */
+/* CTA Button */
 .cta-button-wrapper {
-    margin-top: 40px; /* Espaçamento acima do botão */
+    margin-top: 40px;
 }
 
 .cta-button {
     display: inline-block;
     padding: 18px 40px;
     background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-    color: var(--bg-dark); /* Texto escuro para contrastar com o fundo claro */
+    color: var(--bg-dark);
     font-size: 1.1rem;
     font-weight: 700;
     text-decoration: none;
     border-radius: 50px;
     transition: all var(--transition-speed) ease;
-    box-shadow: 0 0 30px rgba(0, 240, 255, 0.5);
+    box-shadow: 0 0 30px rgba(74, 112, 169, 0.4);
     border: none;
     cursor: pointer;
 }
 
 .cta-button:hover {
     transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 10px 40px rgba(0, 240, 255, 0.7);
+    box-shadow: 0 10px 40px rgba(74, 112, 169, 0.6);
+    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
 }
 
 .cta-button i {
     margin-right: 10px;
 }
-/* === FIM: ESTILOS ADICIONADOS PARA O BOTÃO CTA === */
-
 
 /* Sections */
 .section {
@@ -369,7 +369,7 @@ h1 {
     margin: 50px 0;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
     transition: all var(--transition-speed) ease;
     position: relative;
     overflow: hidden;
@@ -382,7 +382,7 @@ h1 {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.05), transparent); /* COR ATUALIZADA */
+    background: linear-gradient(90deg, transparent, rgba(74, 112, 169, 0.08), transparent);
     transition: left 0.8s;
 }
 
@@ -393,9 +393,9 @@ h1 {
 .section:hover {
     transform: translateY(-8px);
     box-shadow: 
-        0 15px 40px rgba(0, 240, 255, 0.15), /* COR ATUALIZADA */
-        0 0 30px rgba(0, 240, 255, 0.1); /* COR ATUALIZADA */
-    border-color: rgba(0, 240, 255, 0.4); /* COR ATUALIZADA */
+        0 15px 40px rgba(74, 112, 169, 0.2),
+        0 0 30px rgba(74, 112, 169, 0.15);
+    border-color: rgba(143, 171, 212, 0.4);
 }
 
 .section h2 {
@@ -427,7 +427,7 @@ h1 {
 }
 
 .section p {
-    color: var(--text-secondary); /* COR ATUALIZADA */
+    color: var(--text-secondary);
     font-size: 1.1em;
     line-height: 1.8;
 }
@@ -441,7 +441,7 @@ h1 {
 }
 
 .skill-card {
-    background: linear-gradient(135deg, rgba(0, 240, 255, 0.08), rgba(0, 119, 255, 0.08)); /* CORES ATUALIZADAS */
+    background: linear-gradient(135deg, rgba(74, 112, 169, 0.1), rgba(143, 171, 212, 0.08));
     border: 2px solid var(--border-color);
     border-radius: 15px;
     padding: 35px;
@@ -458,7 +458,7 @@ h1 {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(0, 240, 255, 0.1), transparent); /* COR ATUALIZADA */
+    background: linear-gradient(45deg, transparent, rgba(74, 112, 169, 0.15), transparent);
     transform: rotate(45deg);
     transition: all 0.6s;
 }
@@ -476,9 +476,9 @@ h1 {
     transform: translateY(-15px) scale(1.05);
     border-color: var(--primary-color);
     box-shadow: 
-        0 20px 40px rgba(0, 240, 255, 0.4), /* COR ATUALIZADA */
-        0 0 30px rgba(0, 240, 255, 0.3); /* COR ATUALIZADA */
-    background: linear-gradient(135deg, rgba(0, 240, 255, 0.2), rgba(0, 119, 255, 0.2)); /* CORES ATUALIZADAS */
+        0 20px 40px rgba(74, 112, 169, 0.3),
+        0 0 30px rgba(74, 112, 169, 0.25);
+    background: linear-gradient(135deg, rgba(74, 112, 169, 0.2), rgba(143, 171, 212, 0.15));
 }
 
 .skill-icon {
@@ -491,7 +491,7 @@ h1 {
     position: relative;
     z-index: 1;
     animation: iconFloat 3s ease-in-out infinite;
-    filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.5)); /* COR ATUALIZADA */
+    filter: drop-shadow(0 0 20px rgba(74, 112, 169, 0.4));
 }
 
 @keyframes iconFloat {
@@ -501,7 +501,7 @@ h1 {
 
 .skill-card:hover .skill-icon {
     animation: iconBounce 0.6s ease;
-    filter: drop-shadow(0 0 30px rgba(0, 240, 255, 0.8)); /* COR ATUALIZADA */
+    filter: drop-shadow(0 0 30px rgba(74, 112, 169, 0.6));
 }
 
 @keyframes iconBounce {
@@ -550,7 +550,7 @@ footer::before {
 }
 
 footer .fa-heart {
-    color: var(--primary-color); /* COR ATUALIZADA */
+    color: var(--primary-color);
     animation: heartbeat 1.5s ease-in-out infinite;
 }
 
@@ -572,11 +572,6 @@ footer .fa-heart {
     transform: translateY(0);
 }
 
-
-/* ================================== */
-/* NOVOS ESTILOS (MERGE)              */
-/* ================================== */
-
 /* Navigation Bar */
 nav {
     padding: 24px 0;
@@ -584,7 +579,7 @@ nav {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(2, 6, 23, 0.8); /* Fundo com base no --bg-dark */
+    background: rgba(0, 0, 0, 0.9);
     border-bottom: 1px solid var(--border-color);
     width: 100%;
 }
@@ -625,7 +620,7 @@ nav {
     color: var(--primary-color);
 }
 
-/* Cabeçalho das Seções (para Experiência e Formação) */
+/* Section Header */
 .section-header {
     text-align: center;
     margin-bottom: 64px;
@@ -680,7 +675,7 @@ nav {
     height: 16px;
     border-radius: 50%;
     background: var(--primary-color);
-    box-shadow: 0 0 0 4px var(--bg-dark), 0 0 0 8px var(--border-color); /* CORES ATUALIZADAS */
+    box-shadow: 0 0 0 4px var(--bg-dark), 0 0 0 8px var(--border-color);
 }
 
 .timeline-item h3 {
@@ -734,7 +729,7 @@ nav {
 .education-card:hover {
     transform: translateX(8px);
     border-left-color: var(--secondary-color);
-    box-shadow: 0 0 20px rgba(0, 240, 255, 0.2); /* COR ATUALIZADA */
+    box-shadow: 0 0 20px rgba(74, 112, 169, 0.25);
 }
 
 .education-card h3 {
@@ -755,10 +750,9 @@ nav {
     margin-right: 12px;
 }
 
-/* Cores específicas dos ícones de educação */
 .education-card .fa-graduation-cap { color: var(--primary-color); }
 .education-card .fa-certificate { color: var(--secondary-color); }
-.education-card .fa-desktop { color: var(--tertiary-color); }
+.education-card .fa-desktop { color: var(--accent-gold); }
 
 /* Certifications */
 .cert-grid {
@@ -772,8 +766,8 @@ nav {
 }
 
 .cert-badge {
-    background: rgba(0, 119, 255, 0.1); /* Baseado no secundário */
-    border: 1px solid rgba(0, 119, 255, 0.2);
+    background: rgba(74, 112, 169, 0.1);
+    border: 1px solid rgba(143, 171, 212, 0.2);
     border-radius: 12px;
     padding: 20px;
     display: flex;
@@ -783,7 +777,7 @@ nav {
 }
 
 .cert-badge:hover {
-    background: rgba(0, 119, 255, 0.2);
+    background: rgba(74, 112, 169, 0.2);
     transform: translateY(-4px);
 }
 
@@ -803,10 +797,8 @@ nav {
     color: var(--text-secondary);
 }
 
-
 /* Responsive */
 @media (max-width: 768px) {
-    /* Esconde links da nav em mobile (simplificação) */
     .nav-links {
         display: none;
     }
@@ -834,7 +826,6 @@ nav {
         font-size: 1.3em;
     }
 
-    /* Ajustes da Timeline para Mobile */
     .timeline {
         padding-left: 20px;
     }
