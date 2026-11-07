@@ -26,13 +26,15 @@ em 29/10/2026. A galeria contém cinco deles: CRUD de Produtos foi removido a pe
 
 | Projeto | Repositório | Origem da captura |
 | --- | --- | --- |
-| Farol | [Maratona.de.IA](https://github.com/nicoly-rsousa/Maratona.de.IA) | Tela de login original executada localmente, sem preenchimento de credenciais; a configuração ausente do Supabase é indicada na própria tela |
+| Farol | — | Fotografia da apresentação fornecida pela titular, expandida lateralmente com IA para o formato horizontal 3:2, com banner Rio Pomba Valley corrigido conforme referência; arquivo `assets/projects/farol-horizontal-rio-pomba-v2.jpg` |
 | PetHealth Lite | [-PetHealthLite-](https://github.com/nicoly-rsousa/-PetHealthLite-) | Página inicial executada localmente, sem alterações; coautoria de Nicoly e Mhell Barroca, conforme README |
 | MinhasFinanças | [MinhasFinancas](https://github.com/nicoly-rsousa/MinhasFinancas) | Dashboard local com os dados demonstrativos padrão; as classes Tailwind existentes foram compiladas com Tailwind 3 para a captura, pois o CDN de runtime não carregou |
 | Controle de Almoxarifado | [controle-almoxarifado](https://github.com/nicoly-rsousa/controle-almoxarifado) | Página de alunos local; a API/MySQL não foi iniciada, e a captura mantém a mensagem original de indisponibilidade |
-| Apoio na Rede | [EmersonBayonetta/Apoio-na-Rede](https://github.com/EmersonBayonetta/Apoio-na-Rede) | Página inicial em modo demo; o titular do repositório é identificado no card, sem atribuir sua autoria a Nicoly |
+| Apoio na Rede | [EmersonBayonetta/Apoio-na-Rede](https://github.com/EmersonBayonetta/Apoio-na-Rede) | Página inicial em modo demo; projeto de Nicoly em coautoria com Mhell Barroca, Emerson Boyonetta, Vitor Amorim e Adriana Coelho, conforme informado pela titular |
 
-As imagens são capturas das interfaces, não mockups inventados. Nenhum dado de
+O Farol é um projeto de Nicoly em coautoria com Andre Millani, Alexandre Quintão e Erick Torres, conforme informado pela titular.
+
+Os demais projetos usam capturas das interfaces, não mockups inventados. Nenhum dado de
 produção ou credencial foi inserido. As cópias de pesquisa e dependências ficaram
 fora deste checkout. Capturar um frontend não valida o backend daquele projeto.
 
