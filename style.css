@@ -176,16 +176,19 @@ body.dialog-open { overflow: hidden; }
  .nav-links { position: absolute; top: 75px; right: 0; left: 0; display: flex; flex-direction: column; align-items: stretch; gap: 0; padding: 10px 20px 20px; background: var(--bg); border-bottom: 1px solid var(--line); }
  .nav-links a { display: block; padding: 13px 4px; font-size: 15px; }
  .nav-links .nav-contact { margin-top: 8px; padding: 12px; text-align: center; }
- .hero { grid-template-columns: 1fr; gap: 50px; padding-block: 55px 45px; min-height: auto; }
+ .hero { grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); align-items: center; gap: 18px; padding-block: 55px 45px; min-height: auto; }
  h1 { font-size: clamp(39px, 7vw, 57px); letter-spacing: -1.8px; max-width: 610px; }
  .hero-intro { font-size: 10px; margin-bottom: 21px; }
  .hero-description { font-size: 16px; }
  .hero-actions { gap: 18px; margin-top: 26px; }
  .hero-location { margin-top: 23px; font-size: 10px; }
- .hero-visual { max-width: 380px; justify-self: center; width: calc(100% - 35px); }
- .portrait-frame img { height: 350px; }
- .portrait-frame::before { right: -12px; }
- .portrait-corner { left: -15px; }
+ .hero-visual { max-width: none; justify-self: end; width: 100%; }
+ .portrait-frame { padding: 7px; border-radius: 90px 90px 6px 6px; }
+ .portrait-frame img { height: 235px; border-radius: 84px 84px 3px 3px; }
+ .portrait-frame::before { width: 28px; height: 28px; right: -7px; top: 27px; }
+ .portrait-corner { bottom: 16px; left: -10px; padding: 7px 10px; font-size: 15px; }
+ .portrait-caption { margin-top: 8px; gap: 5px; font-size: 7px; }
+ .portrait-caption span:last-child { font-size: 15px; }
  .specialties { gap: 10px 18px; font-size: 11px; padding-block: 20px; }
  .specialties span[aria-hidden] { font-size: 15px; }
  .specialties span:nth-child(4) { display: none; }
@@ -225,6 +228,8 @@ body.dialog-open { overflow: hidden; }
 @media (max-width: 360px) {
  .wrap { width: calc(100% - 32px); }
  h1 { font-size: 35px; }
+ .hero { grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr); gap: 12px; }
+ .portrait-frame img { height: 205px; }
  .hero-intro { font-size: 9px; letter-spacing: .5px; }
  .hero-actions { align-items: start; flex-direction: column; gap: 5px; }
  .project-count { display: none; }
